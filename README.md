@@ -7,7 +7,7 @@ This is a simple, Zend2Examples application using the ZF2 MVC layer and module
 systems.
 
 
-Installation
+Installation Skeleton
 ------------
 
 Using Composer (recommended)
@@ -39,11 +39,11 @@ then pass it to `tar`:
 You would then invoke `composer` to install dependencies per the previous
 example.
 
-Using Git submodules
+Using Git
 --------------------
 Alternatively, you can install using native git submodules:
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+    git clone git://github.com/trivan/Zend2Examples.git
 
 Virtual Host
 ------------
