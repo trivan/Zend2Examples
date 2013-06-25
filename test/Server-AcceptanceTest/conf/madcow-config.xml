@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<madcow>
+    <execution>
+        <runner>
+            <type>au.com.ps4impact.madcow.runner.webdriver.WebDriverStepRunner</type>
+            <parameters>
+                <!--<browser>Firefox</browser>-->
+                <browser>HtmlUnit</browser>
+            </parameters>
+        </runner>
+        <env.default>LOCAL</env.default>
+    </execution>
+
+    <environments>
+        <environment name="LOCAL">
+            <invokeUrl>
+                <CONSULTANTPROFILE>http://localhost:8080/ConsultantProfile</CONSULTANTPROFILE>
+            </invokeUrl>
+        </environment>
+        <environment name="DEV">
+            <invokeUrl>
+                <CONSULTANTPROFILE>https://profile-dev.4impact.net.au/ConsultantProfile</CONSULTANTPROFILE>
+            </invokeUrl>
+        </environment>
+        <environment name="TEST">
+            <invokeUrl>
+                <CONSULTANTPROFILE>https://profile-test.4impact.net.au/ConsultantProfile</CONSULTANTPROFILE>
+            </invokeUrl>
+        </environment>
+    </environments>
+</madcow>

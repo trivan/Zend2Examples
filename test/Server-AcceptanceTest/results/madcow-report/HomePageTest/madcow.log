@@ -1,0 +1,4 @@
+2013-06-14 10:20:33,488 INFO [HomePageTest] - <Configuring WebDriver browser 'HtmlUnit'>
+2013-06-14 10:20:33,978 INFO [HomePageTest] - <Emulating HtmlUnit browser 'FF3.6'>
+2013-06-14 10:20:35,037 INFO [HomePageTest] - <Running HomePageTest>
+2013-06-14 10:20:35,576 INFO [HomePageTest] - <Opening Page: http://zend2examples.com/>
