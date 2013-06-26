@@ -1,0 +1,27 @@
+<?php
+
+$title = 'Geoip Detected';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<table class="table">
+<tr>
+    <th>Start IP</th>
+    <th>End iP</th>
+    <th>start</th>
+    <th>end</th>
+    <th>cc</th>
+    <th>cn</th>
+</tr>
+<?php foreach ($geoip as $geoip) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($geoip->start_ip);?></td>
+    <td><?php echo $this->escapeHtml($geoip->end_ip);?></td>
+    <td><?php echo $this->escapeHtml($geoip->start);?></td>
+    <td><?php echo $this->escapeHtml($geoip->end);?></td>
+    <td><?php echo $this->escapeHtml($geoip->cc);?></td>
+    <td><?php echo $this->escapeHtml($geoip->cn);?></td>
+</tr>
+<?php endforeach; ?>
+</table>
