@@ -3,6 +3,7 @@ namespace Common\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Paginator\Paginator;
+use Zend\Db\Sql\Sql;
 
 class GeoipTable
 {
@@ -15,8 +16,17 @@ class GeoipTable
 
     public function fetchAll()
     {
-        $resultSet = $this->tableGateway->select(array('cc' =>'VN'));
-        return $resultSet;
+    	$sql = new Sql($this->tableGateway->getAdapter());
+
+    	$select = $sql->select();
+    	$select->from('geo_csv')
+    	->columns(array('start_ip', 'end_ip', 'start','end','cc','cn'))
+    	->limit(20);
+    	$resultSet = $this->tableGateway->selectWith($select);
+    	return $resultSet;
+
+//         $resultSet = $this->tableGateway->select(array('cc' =>'VN'));
+//         return $resultSet;
     }
 
     public function getGeoipbyIP($ip)
