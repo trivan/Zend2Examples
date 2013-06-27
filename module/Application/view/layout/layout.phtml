@@ -12,11 +12,13 @@
                         ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
                         ->prependStylesheet($this->basePath() . '/css/blog.css')
+                        ->prependStylesheet($this->basePath() . '/css/StickyNotes.css')
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 
         <!-- Scripts -->
         <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
                                       ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                                      ->prependFile($this->basePath() . '/js/custom.js')
                                       ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
 
     </head>
@@ -30,6 +32,7 @@
                             <li><a href="<?php echo $this->url('contact') ?>"><?php echo $this->translate('Contact') ?></a></li>
                             <li><a href="<?php echo $this->url('zfcuser') ?>"><?php echo $this->translate('User') ?></a></li>
                             <li><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album') ?></a></li>
+                            <li><a href="<?php echo $this->url('stickynotes') ?>"><?php echo $this->translate('Sticky Notes') ?></a></li>
                         </ul>
         	</div>
         </div>

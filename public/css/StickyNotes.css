@@ -1,0 +1,66 @@
+/*
+    Document   : StickyNotes
+    Created on : Oct 19, 2012, 2:33:35 PM
+    Author     : Arian Khosravi <arian@bigemployee.com>, <@ArianKhosravi>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/** /public/css/StickyNotes.css */
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+* { box-sizing:border-box; }
+
+#sticky-notes {
+    float: left;
+    padding-top: 50px;
+}
+#sticky-notes #create, #sticky-notes textarea  {
+    float:left;
+    padding:25px 25px 40px;
+    margin:0 20px 20px 0;
+    width:250px;
+    height:250px;
+}
+
+#sticky-notes #create {
+    user-select:none;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    border:15px solid rgba(0,0,0,0.1);
+    cursor:pointer;
+    color:rgba(0,0,0,0.1);
+    font:220px "Helvetica", sans-serif;
+    line-height:185px;
+}
+
+#sticky-notes textarea {
+    font:20px 'Gloria Hallelujah', cursive;
+    line-height:1.5;
+    border:0;
+    border-radius:3px;
+    background: linear-gradient(#F9EFAF, #F7E98D);
+    background: -webkit-linear-gradient(#F9EFAF, #F7E98D);
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    overflow:hidden;
+    transition:box-shadow 0.5s ease;
+    transition:-webkit-box-shadow 0.5s ease;
+    font-smoothing:subpixel-antialiased;
+    max-width:520px;
+    max-height:250px;
+}
+
+.delete-sticky{
+    margin-left: -33px;
+    margin-right: 20px;
+}
+a.delete-sticky {
+    color: red;
+}
+.sticky-note{
+    float: left;
+}
+.clear-both {
+    clear: both;
+}

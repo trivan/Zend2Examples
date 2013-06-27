@@ -13,3 +13,7 @@ INSERT INTO `user` (`user_id`, `username`, `email`, `display_name`, `password`, 
 INSERT INTO `contact` (`contact_id`, `firstname`, `lastname`, `companyname`, `phone`, `email`, `enquiry`) VALUES
 (1, 'asd', 'ccc', 'ccc', 'ccc', 'ccc', 'ccc'),
 (3, 'asd', 'asd', 'asd', 'asd', 'asd', 'asd');
+
+
+INSERT INTO `stickynotes` (`id`, `note`, `created`) VALUES (1, 'This is a sticky note you can type and edit.', '');
+INSERT INTO `stickynotes` (`id`, `note`, `created`) VALUES (NULL, 'This is another sticky note ', NULL);
