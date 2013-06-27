@@ -1,27 +1,36 @@
 <?php
-
 $title = 'Geoip Detected';
 $this->headTitle($title);
+$url_order = 'ASC';
+if ($order_by == 'title')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+elseif ($order_by == 'artist')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
 ?>
-<h1><?php echo $this->escapeHtml($title); ?></h1>
+<h3><?php echo $this->escapeHtml($title); ?></h3>
 
 <table class="table">
-<tr>
-    <th>Start IP</th>
-    <th>End iP</th>
-    <th>start</th>
-    <th>end</th>
-    <th>cc</th>
-    <th>cn</th>
-</tr>
-<?php foreach ($geoip as $geoip) : ?>
-<tr>
-    <td><?php echo $this->escapeHtml($geoip->start_ip);?></td>
-    <td><?php echo $this->escapeHtml($geoip->end_ip);?></td>
-    <td><?php echo $this->escapeHtml($geoip->start);?></td>
-    <td><?php echo $this->escapeHtml($geoip->end);?></td>
-    <td><?php echo $this->escapeHtml($geoip->cc);?></td>
-    <td><?php echo $this->escapeHtml($geoip->cn);?></td>
-</tr>
-<?php endforeach; ?>
+    <tr>
+            <th>Start IP</th>
+    		<th>End iP</th>
+    		<th>start</th>
+    		<th>end</th>
+    		<th>cc</th>
+    		<th>cn</th>
+    </tr>
+    <?php foreach ($paginator as $geoip) : ?>
+        <tr>
+		    <td><?php echo $this->escapeHtml($geoip->start_ip);?></td>
+		    <td><?php echo $this->escapeHtml($geoip->end_ip);?></td>
+		    <td><?php echo $this->escapeHtml($geoip->start);?></td>
+		    <td><?php echo $this->escapeHtml($geoip->end);?></td>
+		    <td><?php echo $this->escapeHtml($geoip->cc);?></td>
+		    <td><?php echo $this->escapeHtml($geoip->cn);?></td>
+        </tr>
+    <?php endforeach; ?>
 </table>
+<?php
+    echo $this->paginationControl(
+            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order,'router'=>'listgeoip')
+    );
+    ?>

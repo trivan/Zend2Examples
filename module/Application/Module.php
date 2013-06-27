@@ -60,15 +60,9 @@ class Module
     						return new TableGateway('contact', $dbAdapter, null, $resultSetPrototype);
     					},
     					'Application\Model\GeoipTable' =>  function($sm) {
-    						$tableGateway = $sm->get('GeoipTableGateway');
-    						$table = new GeoipTable($tableGateway);
-    						return $table;
-    					},
-    					'GeoipTableGateway' => function ($sm) {
     						$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-    						$resultSetPrototype = new ResultSet();
-    						$resultSetPrototype->setArrayObjectPrototype(new Geoip());
-    						return new TableGateway('geo_csv', $dbAdapter, null, $resultSetPrototype);
+                    		$table = new GeoipTable($dbAdapter);
+                    		return $table;
     					},
     			),
     	);

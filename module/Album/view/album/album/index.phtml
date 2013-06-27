@@ -36,6 +36,6 @@ echo $this->url('album', array(
 </table>
 <?php
     echo $this->paginationControl(
-            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order)
+            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order,'router'=>'album')
     );
     ?>

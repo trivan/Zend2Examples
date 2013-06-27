@@ -40,6 +40,21 @@ return array(
                             ),
                     ),
             ),
+            'listgeoip' => array(
+                    'type' => 'Segment',
+                    'options' => array(
+                            'route'    => '/listgeoip[/page/:page][/order_by/:order_by][/:order]',
+                            'constraints' => array(
+                                    'page' => '[0-9]+',
+                                    'order_by' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                    'order' => 'ASC|DESC',
+                            ),
+                            'defaults' => array(
+                                    'controller' => 'Application\Controller\Index',
+                                    'action'     => 'listGeoip',
+                            ),
+                    ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -111,6 +126,9 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+        'template_map' => array(
+                'paginator-slide' => __DIR__ . '/../view/layout/slidePaginator.phtml',
         ),
     ),
 );
