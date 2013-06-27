@@ -21,9 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=1;\n"
 "X-Poedit-Basepath: ../src\n"
 
-#. TRANSLATORS: Sticky Node
-#. by version number when used (wxWidgets 2.8)
-#: ../src/edframe.cpp:2431
+#. TRANSLATORS: Home
 msgid "Home"
 msgstr "Trang Chu"
 

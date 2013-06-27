@@ -23,6 +23,7 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
+//     	echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];die;
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
