@@ -1,5 +1,5 @@
 <?php
-namespace Common\Model;
+namespace Application\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Paginator\Paginator;

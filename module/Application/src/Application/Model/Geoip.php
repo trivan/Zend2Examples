@@ -1,5 +1,5 @@
 <?php
-namespace Common\Model;
+namespace Application\Model;
 
 // Add these import statements
 use Zend\InputFilter\Factory as InputFactory;

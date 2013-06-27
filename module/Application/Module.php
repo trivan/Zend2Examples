@@ -10,8 +10,9 @@
 namespace Application;
 
 use Application\Model\Contact;
-
 use Application\Model\ContactTable;
+use Application\Model\Geoip;
+use Application\Model\GeoipTable;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
@@ -57,6 +58,17 @@ class Module
     						$resultSetPrototype = new ResultSet();
     						$resultSetPrototype->setArrayObjectPrototype(new Contact());
     						return new TableGateway('contact', $dbAdapter, null, $resultSetPrototype);
+    					},
+    					'Application\Model\GeoipTable' =>  function($sm) {
+    						$tableGateway = $sm->get('GeoipTableGateway');
+    						$table = new GeoipTable($tableGateway);
+    						return $table;
+    					},
+    					'GeoipTableGateway' => function ($sm) {
+    						$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+    						$resultSetPrototype = new ResultSet();
+    						$resultSetPrototype->setArrayObjectPrototype(new Geoip());
+    						return new TableGateway('geo_csv', $dbAdapter, null, $resultSetPrototype);
     					},
     			),
     	);
