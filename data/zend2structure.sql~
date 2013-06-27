@@ -23,11 +23,12 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
+  `companyname` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `enquiry` text,
-  PRIMARY KEY (`contact_id`),
-  UNIQUE KEY `firstname` (`firstname`),
-  UNIQUE KEY `lastname` (`lastname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`contact_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 
 DROP TABLE IF EXISTS `guestbook`;
