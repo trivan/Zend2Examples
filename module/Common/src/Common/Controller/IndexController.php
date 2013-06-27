@@ -10,25 +10,33 @@ class IndexController extends AbstractActionController
     protected $geoipTable;
     public function indexAction()
     {
-//         if (!session_is_registered("locale")) { //check if the session variable has already been set first
-//             $con = mysql_connect('localhost', 'geo_user', 'geo_password');
-//             if ($con) {
-//                 $ip_num = sprintf("%u", ip2long($_SERVER['REMOTE_ADDR']));
-//                 mysql_select_db("geo_ip", $con);
-//                 $result = mysql_query( "SELECT '' FROM ch_ip WHERE $ip_num BETWEEN start AND end" );
-//                 $num_rows = mysql_num_rows($result);
-//                 if ($num_rows > 0) {
-//                     $_SESSION['locale'] = "ch";
-//                 }
-//                 else { $_SESSION['locale'] = "de"; }
-//             }
-//             else { $_SESSION['locale'] = "de"; //If no db connection can be made then set their locale to German }
-//             }
-//         }
-
         return new ViewModel(array(
                 'geoip' => $this->getGeoipTable()->fetchAll(),
         ));
+    }
+
+    public function locationAction()
+    {
+        $ip = $this->getRealIP();
+//         $ip_num = sprintf("%u", ip2long($ip));
+        $ip_num = 16777218;
+
+        $result = $this->getGeoipTable()->getGeoipbyIP($ip_num);
+
+        echo count($result)."<br/>";
+        foreach ($result as $result) {}
+        echo"<pre>";print_r($result->cc);echo"</pre>";
+        echo"<pre>";print_r($result->cn);echo"</pre>";
+        echo"<pre>";print_r($result);echo"</pre>";
+
+        // convert object => json
+        $json = json_encode($result);
+        echo $json;die;
+
+        // Convert Object to Array
+        $array = (array) $result;
+        echo"<pre>";print_r($array);echo"</pre>";
+        echo json_encode($array);die;
     }
 
     public function getGeoipTable()

@@ -1,0 +1,43 @@
+
+#header .brand{color:white !important;font-weight: bold;font-size: 20px;}
+
+.logo{margin-left: 0px !important;color:white;font-weight: bold;}
+
+#header {
+    background: #007FC3;
+    padding: 20px;
+}
+
+.right{float: right;}
+
+#navigation{
+    background: url("../img/sprite-x.png") repeat-x scroll 0 0 transparent;
+    height: 42px;
+}
+.nav-custom-link{
+    display: block;
+    float: left;
+    left: 0;
+    margin: 0 10px 0 0;
+    list-style: none outside none;
+    padding: 0;
+}
+.nav-custom-link li{float: left;line-height: 20px;}
+
+.nav-custom-link a{
+    display: block;float: none;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.nav-custom-link a:HOVER {
+    color: white;
+}
+
+/*----------------------START CAROUSEL-------------------------*/
+.main-carousel{width: 98%;margin-bottom: 10px;margin-top:10px;}
+.carousel-item{height: 500px;width: 870px;}
+.navigation-carousel{background: url('../img/sprite-slidedeck.png') no-repeat transparent;position: absolute;right: -1px;top: 0;width: 33px;z-index: 900;height: 366px;}
+.selector-carousel{display: block;position: relative;width: 33px;list-style: none outside none;}
+.selector-carousel a{height: 90px;display: block;text-indent: -9999px;}
+/*----------------------END CAROUSEL-------------------------*/

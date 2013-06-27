@@ -1,0 +1,26 @@
+<?php
+
+$title = 'Add New Enquiry';
+$this->headTitle($title);
+?>
+<style>
+label span{width: 160px;float: left;}
+</style>
+
+<h3><?php echo $this->escapeHtml($title); ?></h3>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('contact', array('action' => 'contact')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+//echo $this->formCollection($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('fname'));
+echo $this->formRow($form->get('lname'));
+echo $this->formRow($form->get('companyname'));
+echo $this->formRow($form->get('phone'));
+echo $this->formRow($form->get('email'));
+echo $this->formRow($form->get('enquiry'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

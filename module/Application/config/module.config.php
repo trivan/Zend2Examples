@@ -20,6 +20,26 @@ return array(
                     ),
                 ),
             ),
+            'about' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                                'route'    => '/about',
+                                'defaults' => array(
+                                        'controller' => 'Application\Controller\Page',
+                                        'action'     => 'about',
+                                ),
+                        ),
+            ),
+            'contact' => array(
+                    'type' => 'Segment',
+                    'options' => array(
+                            'route'    => '/contact',
+                            'defaults' => array(
+                                    'controller' => 'Application\Controller\Page',
+                                    'action'     => 'contact',
+                            ),
+                    ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -73,7 +93,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Page' => 'Application\Controller\PageController'
         ),
     ),
     'view_manager' => array(

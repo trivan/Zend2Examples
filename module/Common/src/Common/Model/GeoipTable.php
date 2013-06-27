@@ -16,14 +16,14 @@ class GeoipTable
 
     public function fetchAll()
     {
-    	$sql = new Sql($this->tableGateway->getAdapter());
+        $sql = new Sql($this->tableGateway->getAdapter());
 
-    	$select = $sql->select();
-    	$select->from('geo_csv')
-    	->columns(array('start_ip', 'end_ip', 'start','end','cc','cn'))
-    	->limit(20);
-    	$resultSet = $this->tableGateway->selectWith($select);
-    	return $resultSet;
+        $select = $sql->select();
+        $select->from('geo_csv')
+        ->columns(array('start_ip', 'end_ip', 'start','end','cc','cn'))
+        ->limit(20);
+        $resultSet = $this->tableGateway->selectWith($select);
+        return $resultSet;
 
 //         $resultSet = $this->tableGateway->select(array('cc' =>'VN'));
 //         return $resultSet;
@@ -31,12 +31,14 @@ class GeoipTable
 
     public function getGeoipbyIP($ip)
     {
-        $ip  = (int) $ip;
-        $rowset = $this->tableGateway->select(array('ip' => $$ip));
-        $row = $rowset->current();
-        if (!$row) {
-            throw new \Exception("Could not find row $ip");
-        }
-        return $row;
+        $sql = new Sql($this->tableGateway->getAdapter());
+        $select = $sql->select();
+        $select->from('geo_csv')
+        ->columns(array('start_ip', 'end_ip', 'start','end','cc','cn'))
+        ->where("$ip BETWEEN start AND end")
+        ->limit(20);
+
+        $resultSet = $this->tableGateway->selectWith($select);
+        return $resultSet;
     }
 }

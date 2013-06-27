@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ZF2 '. $this->translate('Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Blog'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
@@ -11,6 +11,7 @@
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
                         ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/blog.css')
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 
         <!-- Scripts -->
@@ -20,26 +21,19 @@
 
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
 
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
+        <div id="navigation">
+        	<div class="container">
+                        <ul class="nav-custom-link">
                             <li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                            <li><a href="<?php echo $this->url('common') ?>"><?php echo $this->translate('Common') ?></a></li>
-                            <li><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album') ?></a></li>
+                            <li><a href="<?php echo $this->url('about') ?>"><?php echo $this->translate('About') ?></a></li>
+                            <li><a href="<?php echo $this->url('contact') ?>"><?php echo $this->translate('Contact') ?></a></li>
                             <li><a href="<?php echo $this->url('zfcuser') ?>"><?php echo $this->translate('User') ?></a></li>
+                            <li><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album') ?></a></li>
                         </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
+        	</div>
         </div>
+
         <div class="container">
             <?php echo $this->content; ?>
             <hr>
