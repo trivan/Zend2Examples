@@ -26,6 +26,11 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+
+        $translator = $e->getApplication()->getServiceManager()->get('translator');
+        $translator
+        ->setLocale(\Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']))
+        ->setFallbackLocale('vi');
     }
 
     public function getConfig()

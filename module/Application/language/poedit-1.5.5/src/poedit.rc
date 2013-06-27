@@ -1,0 +1,70 @@
+/*
+ *  This file is part of Poedit (http://www.poedit.net)
+ *
+ *  Copyright (C) 2000-2013 Vaclav Slavik
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a
+ *  copy of this software and associated documentation files (the "Software"),
+ *  to deal in the Software without restriction, including without limitation
+ *  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ *  and/or sell copies of the Software, and to permit persons to whom the
+ *  Software is furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ *  DEALINGS IN THE SOFTWARE.
+ *
+ *  $Id$
+ *
+ *  Resources file
+ *
+ */
+
+appicon ICON   "../icons/win32/appicon.ico"
+
+#include "wx/msw/wx.rc"
+#include "version.h"
+
+#ifndef NDEBUG
+#define VER_DEBUG    VS_FF_DEBUG
+#else
+#define VER_DEBUG    0
+#endif
+
+1 VERSIONINFO
+ FILEVERSION     POEDIT_VERSION_WIN
+ PRODUCTVERSION  POEDIT_VERSION_WIN
+ FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+ FILEFLAGS       VER_DEBUG
+ FILEOS          VOS_NT_WINDOWS32
+ FILETYPE        VFT_APP
+ FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0" // US English, Unicode
+        BEGIN
+            VALUE "Comments", "http://wwww.poedit.net"
+            VALUE "CompanyName", "Vaclav Slavik\0"
+            VALUE "FileDescription", "Poedit\0"
+            VALUE "FileVersion", POEDIT_VERSION "\0"
+            VALUE "InternalName", "Poedit\0"
+            VALUE "OriginalFilename", "Poedit.exe\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999-2013 Vaclav Slavik\0"
+            VALUE "ProductName", "Poedit\0"
+            VALUE "ProductVersion", POEDIT_VERSION "\0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04B0
+    END
+END
