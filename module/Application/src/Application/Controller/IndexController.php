@@ -25,7 +25,7 @@ class IndexController extends AbstractActionController
     {
 
         //create mo file for vi_VN.po
-//         $path = __DIR__.'/../../../language/'.'vi_VN'.".po";
+//         $path = __DIR__.'/../../../language/'.'en_US'.".po";
 //         $abc = new phpMo();
 //         $abc->phpmo_convert($path);
 

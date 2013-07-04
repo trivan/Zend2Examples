@@ -232,20 +232,28 @@ class poParser
 	*/
 	public function update_entry( $original, $translation )
 	{
-		$this->entries[ $original ]['fuzzy'] = false;
-		$this->entries[ $original ]['msgstr'] = array($translation);
+		if(isset($this->entries[ $original ])){
+			$this->entries[ $original ]['fuzzy'] = false;
+			$this->entries[ $original ]['msgstr'] = array($translation);
 
-		if( isset( $this->entries[$original]['flags']) )
-		{
-			$flags = $this->entries[ $original ]['flags'];
-			$this->entries[ $original ]['flags'] = str_replace('fuzzy', '', $flags );
+			if( isset( $this->entries[$original]['flags']) )
+			{
+				$flags = $this->entries[ $original ]['flags'];
+				$this->entries[ $original ]['flags'] = str_replace('fuzzy', '', $flags );
+			}
+		}
+		else{
+// 			echo "<pre>";print_r($this->entries[$original]);echo "</pre>";
+// 			echo "<pre>";print_r( $this->entries );echo "</pre>";die;
+
+			$this->entries[ $original ]['tcomment'] = $original;
+			$this->entries[ $original ]['msgid'] = $original;
+			$this->entries[ $original ]['msgstr'] = array($translation);
+			$this->entries[ $original ]['fuzzy'] = false;
+// 			echo "<pre>";print_r( $this->entries );echo "</pre>";die;
 		}
 
 		return $this->entries;
-//		echo "================================\n";
-//		debug::dump( $this->entries[$original] );
-//		echo "================================\n";
-//		debug::dump( $this->entries );
 	}
 
 
