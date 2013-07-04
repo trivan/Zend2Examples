@@ -29,7 +29,7 @@ class Module
         $moduleRouteListener->attach($eventManager);
 
         $translator = $e->getApplication()->getServiceManager()->get('translator');
-        $translator->setLocale("fr_FR");
+        $translator->setLocale("vi_VN");
     }
 
     public function getConfig()

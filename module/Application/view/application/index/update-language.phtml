@@ -1,0 +1,36 @@
+<?php
+$title = 'Update language';
+$this->headTitle($title);
+?>
+<h3><?php echo $this->escapeHtml($title); ?></h3>
+<div style="margin: auto;padding: auto;text-align: center;">
+<div style="width: 100%">Language : <?php echo $lang;?></div>
+
+<?php if(!empty($message)):?>
+<div style="width: 100%;padding-top: 20px;color:red;padding-bottom: 20px;">Messages : <?php echo $message;?></div>
+<?php endif;?>
+
+<div>
+    <form action="" method="post">
+        <table class="table table-striped">
+        <tr>
+            <th>Message ID</th>
+            <th>Translation</th>
+        </tr>
+        <?php
+                $key = 1;
+                foreach( $entries AS $entry )
+                {
+                   if(!empty($entry['msgid'])){
+                       echo '<tr>'
+                       .'<td style="width:50%;"><textarea style="width:90%;" name="entry'.$key.'"/>'.$entry['msgid'].'</textarea></td>'
+                       .'<td style="width:50%;"><textarea style="width:90%;" name="entrytranslator'.$key.'"/>'.$entry['msgstr'][0].'</textarea></td>'
+                       .'</tr>';
+                   }
+                   $key++;
+                }
+        ?></table>
+        <input type="submit" name="Update"/>
+    </form>
+</div>
+</div>

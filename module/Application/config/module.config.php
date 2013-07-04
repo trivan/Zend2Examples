@@ -55,6 +55,19 @@ return array(
                             ),
                     ),
             ),
+            'updatelang' => array(
+                    'type' => 'Segment',
+                    'options' => array(
+                            'route'    => '/updatelang[/lang/:lang]',
+                            'constraints' => array(
+                                    'lang' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                    'controller' => 'Application\Controller\Index',
+                                    'action'     => 'updateLanguage',
+                            ),
+                    ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them

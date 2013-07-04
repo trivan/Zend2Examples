@@ -15,13 +15,63 @@ use Application\Model\Geoip;
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
+use Application\Model\phpMo;
+use Application\Model\poParser;
 
 class IndexController extends AbstractActionController
 {
     protected $geoipTable;
     public function indexAction()
     {
+
+        //create mo file for vi_VN.po
+//         $path = __DIR__.'/../../../language/'.'vi_VN'.".po";
+//         $abc = new phpMo();
+//         $abc->phpmo_convert($path);
+
         return new ViewModel();
+    }
+
+    public function updateLanguageAction()
+    {
+        $lang = $_GET["lang"];
+        $path = __DIR__.'/../../../language/'.$lang.".po";
+
+        /*----- start read file -----*/
+        $poparser = new poParser();
+        $entries = $poparser->read($path);
+//         echo "<pre>";print_r($entries);echo "</pre>";die;
+        /*----- end read file -----*/
+
+        $message = "";
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+
+            //update Po File
+            $dataPost = $_POST;
+            $countDataLang = (count($dataPost) - 1)/2;
+            for($i=0;$i<$countDataLang;$i++){
+
+                $key = $i + 2;
+                $id = "entry$key";
+                $translation = 'entrytranslator'.$key;
+
+                $entries = $poparser->update_entry($dataPost[$id],$dataPost[$translation]);
+                $poparser->write($path);
+            }
+            $poparser->write($path);
+
+            //update Mo File
+            $abc = new phpMo();
+            $abc->phpmo_convert($path);
+            $message = "change translator language success!";
+        }
+
+        return new ViewModel(array(
+                'lang' => $lang,
+                'message' => $message,
+                'entries'=> $entries,
+        ));
     }
 
     public function listGeoipAction()

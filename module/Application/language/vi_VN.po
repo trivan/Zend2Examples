@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+
+# layout.phtml
+msgid "Home"
+msgstr "Trang Chu XXX"
+
+# layout.phtml
+msgid "About"
+msgstr "Gioi Thieu"
+
