@@ -56,10 +56,11 @@ class IndexController extends AbstractActionController
                 $id = "entry$key";
                 $translation = 'entrytranslator'.$key;
 
-                $entries = $poparser->update_entry($dataPost[$id],$dataPost[$translation]);
-                $poparser->write($path);
+                if(!empty($dataPost[$id])){
+                    $entries = $poparser->update_entry($dataPost[$id],$dataPost[$translation]);
+                    $poparser->write($path);
+                }
             }
-            $poparser->write($path);
 
             //update Mo File
             $abc = new phpMo();

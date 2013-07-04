@@ -29,7 +29,13 @@ $this->headTitle($title);
                    }
                    $key++;
                 }
-        ?></table>
+
+        ?>
+        <tr>
+              <td style="width:50%;"><textarea style="width:90%;" name="<?php echo 'entry'.$key;?>"/></textarea></td>
+              <td style="width:50%;"><textarea style="width:90%;" name="<?php echo 'entrytranslator'.$key;?>"/></textarea></td>
+        </tr>
+        </table>
         <input type="submit" name="Update"/>
     </form>
 </div>
