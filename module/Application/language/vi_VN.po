@@ -15,5 +15,5 @@ msgstr "Lien He"
 
 # User
 msgid "User"
-msgstr "Tai Khoan"
+msgstr "Tai Khoan XXX"
 

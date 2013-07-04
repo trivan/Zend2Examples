@@ -108,6 +108,9 @@ return array(
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),
+        'services' => array(
+            'session' => new Zend\Session\Container('zend2exlanguage'),
+        ),
     ),
     'translator' => array(
         'locale' => 'en_US',

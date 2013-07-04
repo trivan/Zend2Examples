@@ -23,14 +23,42 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
+        $this->initLanguage($e);
+
 //     	echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];die;
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-
-        $translator = $e->getApplication()->getServiceManager()->get('translator');
-        $translator->setLocale("vi_VN");
     }
+
+    private function initLanguage(MvcEvent $e){
+
+    	$session = $e->getApplication()->getServiceManager()->get('session');
+    	$translator = $e->getApplication()->getServiceManager()->get('translator');
+
+    	if(isset($_GET["lang"]) && !empty($_GET["lang"])){
+    		switch ($_GET["lang"]){
+    			case "vi": {
+    				$translator->setLocale("vi_VN");
+    				$session->lang = "VN";break;
+    			}
+    			case "en": {
+    				$translator->setLocale("en_US");
+    				$session->lang = "US";break;
+    			}
+    		}
+    	}
+    	else{
+    		//condition for no choose from UI
+    		if (isset($session->lang)) {
+    			if($session->lang == "VN"){
+    				$translator->setLocale("vi_VN");
+    			}
+    			else $translator->setLocale("en_US");
+    		}
+    	}
+    }
+
 
     public function getConfig()
     {
