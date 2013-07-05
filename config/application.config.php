@@ -4,8 +4,6 @@ return array(
     'modules' => array(
         'Application',
         'Album',
-        'ZfcBase',
-        'ZfcUser',
         'StickyNotes',
         'User',
     ),
