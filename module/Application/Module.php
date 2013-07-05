@@ -66,10 +66,14 @@ class Module
         $userRole = 'guest';
 
         if (!$e -> getViewModel() -> acl -> isAllowed($userRole, $route)) {
-            $response = $e -> getResponse();
-            //location to page or what ever
-            $response -> getHeaders() -> addHeaderLine('Location', $e -> getRequest() -> getBaseUrl() . '/404');
-            $response -> setStatusCode(303);
+
+               //redirect to 404 page
+//             $response = $e -> getResponse();
+//             //location to page or what ever
+//             $response -> getHeaders() -> addHeaderLine('Location', $e -> getRequest() -> getBaseUrl() . '/404');
+//             $response -> setStatusCode(303);
+
+        	header("Location:/tuser");exit();
         }
     }
 

@@ -4,7 +4,8 @@ return array(
         'home',
         'login',
         'album',
-        'stickynotes'
+        'stickynotes',
+        'tuser',
     ),
     'superguest'=> array(
         'listgeoip',
