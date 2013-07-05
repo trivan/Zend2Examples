@@ -19,6 +19,8 @@ use Zend\Mvc\MvcEvent;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
+use Zend\Session\Container; // We need this when using sessions
+
 class Module
 {
     public function onBootstrap(MvcEvent $e)
@@ -63,7 +65,14 @@ class Module
     public function checkAcl(MvcEvent $e) {
         $route = $e -> getRouteMatch() -> getMatchedRouteName();
         //you set your role
-        $userRole = 'guest';
+        //set permission
+        $userSession = new Container('permisson');
+//         echo "<pre>";print_r($userSession->permisson);echo "</pre>";die;
+
+        if (isset($userSession->permisson) && !empty($userSession->permisson)) {
+             $userRole = $userSession->permisson;
+        }
+        else $userRole = 'guest';
 
         if (!$e -> getViewModel() -> acl -> isAllowed($userRole, $route)) {
 

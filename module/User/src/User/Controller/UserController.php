@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 use Zend\Db\Sql\Select;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
+use Zend\Session\Container; // We need this when using sessions
 
 
 class UserController extends AbstractActionController {
@@ -30,6 +31,11 @@ class UserController extends AbstractActionController {
     }
 
     public function loginAction() {
+
+    	if ($this->getServiceLocator()->get('AuthService')->hasIdentity())
+    	{
+    		return $this->redirect()->toRoute('profile');
+    	}
 
         $loginMsg = "";
         $request = $this->getRequest();
@@ -56,6 +62,10 @@ class UserController extends AbstractActionController {
                 $userId = $this->getAuthService()->getAdapter()->getResultRowObject('id')->id;
                 $this->getAuthService()->getStorage()->write(array($userId,$_POST['username']));
 
+                //set permission
+                $userSession = new Container('permisson');
+                $userSession->permisson = "superguest";
+
                 return $this->redirect()->toRoute('profile');
 
             } else {
@@ -77,6 +87,11 @@ class UserController extends AbstractActionController {
         if ($this->getAuthService()->hasIdentity()) {
             $this->getSessionStorage()->forgetMe();
             $this->getAuthService()->clearIdentity();
+
+            //clear session permission
+            $session_user = new Container('permisson');
+            $session_user->getManager()->getStorage()->clear();
+
             $this->flashmessenger()->addMessage("You've been logged out");
         }
     	return $this->redirect()->toRoute("tuser");

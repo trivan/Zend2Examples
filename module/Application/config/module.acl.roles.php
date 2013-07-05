@@ -6,6 +6,10 @@ return array(
         'album',
         'stickynotes',
         'tuser',
+        'profile',
+        'tlogout',
+        'about',
+        'contact',
     ),
     'superguest'=> array(
         'listgeoip',

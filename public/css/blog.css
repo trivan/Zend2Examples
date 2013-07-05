@@ -1,4 +1,6 @@
 
+.lang a:hover{color:white;text-decoration: none;}
+
 #header .brand{color:white !important;font-weight: bold;font-size: 20px;}
 
 .logo{margin-left: 0px !important;color:white;font-weight: bold;}
