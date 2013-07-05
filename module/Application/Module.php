@@ -25,7 +25,6 @@ class Module
     {
         $this->initLanguage($e);
 
-//     	echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];die;
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
@@ -39,6 +38,10 @@ class Module
     	if(isset($_GET["lang"]) && !empty($_GET["lang"])){
     		switch ($_GET["lang"]){
     			case "vi": {
+    				$translator->setLocale("vi_VN");
+    				$session->lang = "VN";break;
+    			}
+    			case "vi_VN": {
     				$translator->setLocale("vi_VN");
     				$session->lang = "VN";break;
     			}

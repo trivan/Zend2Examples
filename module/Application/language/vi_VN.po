@@ -3,7 +3,7 @@ msgstr ""
 
 # layout.phtml
 msgid "Home"
-msgstr "Trang Chu"
+msgstr "Trang ChuX"
 
 # layout.phtml
 msgid "About"

@@ -1,0 +1,13 @@
+<?php
+$title = 'My Account';
+$this->headTitle($title);
+?>
+
+<div class="span12" style="padding-bottom: 100px;padding-top: 50px;">
+<h3><?php echo $this->escapeHtml($title); ?></h3>
+
+<h5>ID : <?php echo $users[0];?></h5>
+<h5>User Name : <?php echo $users[1];?></h5>
+
+<p style="padding-top: 20px;"><a href="<?php echo $this->url("tlogout");?>"> Logout </a></p>
+</div>
