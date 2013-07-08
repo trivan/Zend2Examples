@@ -40,6 +40,16 @@ return array(
                             ),
                     ),
             ),
+            'test' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/test',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Index',
+            						'action'     => 'test',
+            				),
+            		),
+            ),
             'listgeoip' => array(
                     'type' => 'Segment',
                     'options' => array(

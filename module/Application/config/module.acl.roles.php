@@ -10,6 +10,7 @@ return array(
         'tlogout',
         'about',
         'contact',
+        'test',
     ),
     'superguest'=> array(
         'listgeoip',

@@ -32,6 +32,11 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
+    public function testAction()
+    {
+        return new ViewModel();
+    }
+
     public function updateLanguageAction()
     {
         $lang = $_GET["lang"];
